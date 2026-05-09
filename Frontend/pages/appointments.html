@@ -5,77 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Citas - Velora</title>
   <link rel="icon" href="/assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/layout.css">
-  <link rel="stylesheet" href="/css/appointments.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body class="dash-body">
-
-  <!-- ── NAV MÓVIL ── -->
-  <nav class="mobile-nav">
-    <ul class="mobile-nav-list">
-      <li><a href="/pages/dashboard.html" class="mobile-nav-item"><i data-lucide="layout-dashboard"></i><span>Inicio</span></a></li>
-      <li><a href="/pages/appointments.html" class="mobile-nav-item active"><i data-lucide="calendar"></i><span>Citas</span></a></li>
-      <li><a href="/pages/services.html" class="mobile-nav-item"><i data-lucide="wrench"></i><span>Servicios</span></a></li>
-      <li><a href="/pages/customers.html" class="mobile-nav-item"><i data-lucide="users"></i><span>Clientes</span></a></li>
-      <li><a href="/pages/settings.html" class="mobile-nav-item"><i data-lucide="settings"></i><span>Ajustes</span></a></li>
-    </ul>
-  </nav>
-
-  <div class="dash-layout">
-    <aside class="sidebar">
-            <div class="logo">
-                <span class="logo-text">Velora</span>
-            </div>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="/pages/dashboard.html" class="nav-link">
-            <i data-lucide="layout-dashboard" class="nav-icon"></i>
-            Panel de control
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="/pages/appointments.html" class="nav-link active">
-            <i data-lucide="calendar" class="nav-icon"></i>
-            Citas
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="/pages/services.html" class="nav-link">
-            <i data-lucide="wrench" class="nav-icon"></i>
-            Servicios
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="/pages/customers.html" class="nav-link">
-            <i data-lucide="users" class="nav-icon"></i>
-            Clientes
-          </a>
-        </li>
-        <li class="nav-item">
-            <a href="/pages/settings.html" class="nav-link">
-                <i data-lucide="settings" class="nav-icon"></i>
-                Configuración
-            </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" onclick="logout()" class="nav-link">
-            <i data-lucide="log-out" class="nav-icon"></i>
-            Cerrar sesión
-          </a>
-        </li>
-      </ul>
-
-      <div class="sidebar-footer" style="text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 15px; margin-top: auto;">
-        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Cambiar tema">
-          <i data-lucide="sun"></i>
-        </button>
-      </div>
-    </aside>
-
-    <main class="main-content">
+   <link rel="stylesheet" href="/css/style.css">
+   <link rel="stylesheet" href="/css/dashboard.css">
+   <link rel="stylesheet" href="/css/appointments.css">
+   <link rel="stylesheet" href="/css/components.css">
+   <script src="https://unpkg.com/lucide@latest"></script>
+ </head>
+ <body class="dash-body">
+ 
+   <!-- ── NAV MÓVIL ── -->
+   <nav class="mobile-nav">
+     <ul class="mobile-nav-list">
+       <li><a href="/pages/dashboard.html" class="mobile-nav-item"><i data-lucide="layout-dashboard"></i><span>Inicio</span></a></li>
+       <li><a href="/pages/appointments.html" class="mobile-nav-item active"><i data-lucide="calendar"></i><span>Citas</span></a></li>
+       <li><a href="/pages/services.html" class="mobile-nav-item"><i data-lucide="wrench"></i><span>Servicios</span></a></li>
+       <li><a href="/pages/customers.html" class="mobile-nav-item"><i data-lucide="users"></i><span>Clientes</span></a></li>
+       <li><a href="/pages/settings.html" class="mobile-nav-item"><i data-lucide="settings"></i><span>Ajustes</span></a></li>
+     </ul>
+   </nav>
+ 
+   <div class="dash-layout">
+     <aside class="dash-sidebar">
+       <div class="logo">
+         <span class="logo-text">Velora</span>
+       </div>
+       <nav class="dash-nav">
+         <a href="/pages/dashboard.html" class="dash-nav-link">
+           <i data-lucide="layout-dashboard"></i>
+           <span>Panel de control</span>
+         </a>
+         <a href="/pages/appointments.html" class="dash-nav-link active">
+           <i data-lucide="calendar"></i>
+           <span>Citas</span>
+         </a>
+         <a href="/pages/services.html" class="dash-nav-link">
+           <i data-lucide="wrench"></i>
+           <span>Servicios</span>
+         </a>
+         <a href="/pages/customers.html" class="dash-nav-link">
+           <i data-lucide="users"></i>
+           <span>Clientes</span>
+         </a>
+         <a href="/pages/settings.html" class="dash-nav-link">
+           <i data-lucide="settings"></i>
+           <span>Configuración</span>
+         </a>
+       </nav>
+       <div class="dash-sidebar-bottom" style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.04);">
+         <button class="dash-nav-link dash-logout" onclick="logout()">
+           <i data-lucide="log-out"></i>
+           <span>Cerrar sesión</span>
+         </button>
+       </div>
+     </aside>
+ 
+     <main class="dash-main">
       <h1 style="margin-bottom: 30px;">Citas</h1>
       <div id="appointmentsTable"></div>
     </main>
