@@ -12,6 +12,18 @@
   ],
   "rewrites": [
     {
+      "source": "/manifest.json",
+      "destination": "/Frontend/manifest.json"
+    },
+    {
+      "source": "/sw.js",
+      "destination": "/Frontend/sw.js"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/Frontend/favicon.ico"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/Backend/server.js"
     },
