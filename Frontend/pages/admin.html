@@ -18,6 +18,23 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="admin-layout">
+
+    <!-- ── NAV MÓVIL ADMIN ── -->
+    <nav class="admin-mobile-nav" style="display: none;">
+        <a href="/pages/admin.html">
+            <i data-lucide="shield-check"></i>
+            <span>Admin</span>
+        </a>
+        <a href="/pages/dashboard.html">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+        </a>
+        <button onclick="logout()">
+            <i data-lucide="log-out"></i>
+            <span>Salir</span>
+        </button>
+    </nav>
+
     <div class="app-layout" style="width: 100%;">
         <aside class="sidebar">
             <div class="logo">
@@ -129,6 +146,15 @@
     <script src="../js/admin.js"></script>
     <script>
         lucide.createIcons();
+        // Mostrar nav móvil si la pantalla es pequeña
+        function checkAdminMobileNav() {
+            const nav = document.querySelector('.admin-mobile-nav');
+            if (nav) {
+                nav.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
+            }
+        }
+        checkAdminMobileNav();
+        window.addEventListener('resize', checkAdminMobileNav);
     </script>
 </body>
 </html>

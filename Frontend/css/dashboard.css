@@ -116,16 +116,39 @@
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
-    padding: 10px 16px !important;
+    padding: 10px 14px !important;
     background: var(--bg-secondary);
     border-bottom: 1px solid rgba(255,255,255,0.05);
+    gap: 8px;
   }
+
+  /* Fix: título no se parte en varias líneas */
+  .dash-page-title {
+    font-size: 16px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 130px;
+    line-height: 1.2;
+  }
+  .dash-page-sub { display: none; }
   
   .dash-topbar-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    flex-shrink: 0;
   }
+
+  /* Botón copiar: solo muestra el icono en móvil */
+  .dash-btn-primary {
+    padding: 9px 11px !important;
+    border-radius: 12px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .dash-btn-primary .btn-text { display: none; }
+  .dash-btn-primary i { width: 18px; height: 18px; margin: 0; }
 
   .mobile-logout-btn {
     display: flex !important;
@@ -140,12 +163,14 @@
   }
 
   .dash-main { 
-    padding: 16px 16px 120px 16px !important; 
+    padding: 16px 14px 120px 14px !important; 
   }
-  
-  .dash-page-title { font-size: 22px; }
-  
-  /* Settings Tabs Premium Scroll */
+
+  /* Grids apilados en móvil */
+  .dash-grid { grid-template-columns: 1fr !important; }
+  .dash-bottom-row { grid-template-columns: 1fr !important; }
+
+  /* Settings Tabs: scroll horizontal */
   .settings-tabs {
     display: flex !important;
     overflow-x: auto !important;
@@ -155,16 +180,23 @@
     background: rgba(255,255,255,0.03);
     border-radius: 14px;
     -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   .settings-tabs::-webkit-scrollbar { display: none; }
   .tab-btn { 
-    padding: 10px 18px !important; 
-    font-size: 13px !important;
+    padding: 10px 16px !important; 
+    font-size: 12px !important;
     flex-shrink: 0;
     border-radius: 10px !important;
+    white-space: nowrap;
   }
   
-  /* Fix Save Button overlapping content */
+  /* Vista Previa: ocultarla en móvil (no cabe) */
+  .settings-preview-aside { display: none !important; }
+  .settings-layout { grid-template-columns: 1fr !important; }
+
+  /* Fix Save Button */
   .settings-footer {
     position: fixed;
     bottom: 70px;

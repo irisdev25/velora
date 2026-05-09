@@ -145,3 +145,84 @@
 @media (max-width: 1024px) {
     .admin-charts-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Admin Mobile Nav ── */
+@media (max-width: 768px) {
+  .admin-layout { flex-direction: column; }
+  
+  /* Ocultar sidebar en móvil */
+  .sidebar { 
+    display: none !important; 
+  }
+
+  /* Nav inferior fija para admin */
+  .admin-mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: rgba(15, 23, 42, 0.97);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1000;
+    padding: 0 10px;
+    backdrop-filter: blur(15px);
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .admin-mobile-nav a,
+  .admin-mobile-nav button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all 0.2s;
+  }
+  .admin-mobile-nav a:hover,
+  .admin-mobile-nav button:hover {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+  }
+  .admin-mobile-nav i { width: 22px; height: 22px; }
+
+  /* Main content ocupa toda la pantalla */
+  .main-content {
+    padding: 16px 16px 100px 16px !important;
+    margin-left: 0 !important;
+  }
+
+  /* Header compacto */
+  .main-content header h1 { font-size: 24px !important; }
+
+  /* Banners en 1 columna */
+  .admin-banners { 
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .stat-banner { padding: 22px; }
+  .stat-banner-value { font-size: 38px; }
+
+  /* Gráficas en 1 columna */
+  .admin-charts-grid { grid-template-columns: 1fr !important; gap: 14px; }
+  .admin-chart-card { height: 280px; }
+
+  /* Tabla con scroll horizontal */
+  .admin-table-card { 
+    padding: 16px;
+    overflow-x: auto;
+  }
+  .admin-table { min-width: 480px; }
+  .admin-table th, .admin-table td { padding: 12px 10px; font-size: 13px; }
+}

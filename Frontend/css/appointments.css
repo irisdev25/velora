@@ -104,3 +104,54 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+/* ── Mobile Responsive: Tabla de Citas ── */
+@media (max-width: 768px) {
+  /* Contenedor con scroll horizontal como mínimo */
+  #appointmentsTable {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .appointments-table {
+    min-width: 560px; /* fuerza scroll horizontal */
+    border-spacing: 0 6px;
+  }
+
+  .appointments-table th {
+    padding: 12px 14px;
+    font-size: 11px;
+  }
+
+  .appointments-table td {
+    padding: 12px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* Nombre del servicio no se parta */
+  .appointments-table td:nth-child(2) {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .status-badge {
+    padding: 4px 10px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .status-select {
+    padding: 4px 8px;
+    font-size: 12px;
+    max-width: 110px;
+  }
+
+  /* Botones de acción más pequeños */
+  .appointments-table td button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
