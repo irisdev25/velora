@@ -34,6 +34,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 300);
     if (window.lucide) window.lucide.createIcons();
 
+    // Iniciar el sistema de actualización automática (Real-time polling)
+    // Verificamos cambios cada 15 segundos sin recargar la página
+    setInterval(() => {
+        fetchDashboardData(true); // Actualización silenciosa
+        fetchNotifications();
+    }, 15000);
+
     // Registro de Service Worker para PWA
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed:', err));

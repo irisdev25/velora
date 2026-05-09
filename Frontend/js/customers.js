@@ -77,6 +77,7 @@ window.selectCustomer = async (id) => {
     detailPanel.innerHTML = '<div style="text-align: center; margin: auto;"><p>Cargando detalles...</p></div>';
 
     try {
+        const data = await ApiService.get(`/customers/${id}`);
         const { profile, history, notes: customerNotes } = data;
 
         detailPanel.innerHTML = `
