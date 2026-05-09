@@ -62,6 +62,67 @@
   position: sticky;
   top: 0;
   overflow-y: auto;
+  z-index: 100;
+}
+
+/* ── Mobile Bottom Nav ── */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  z-index: 1000;
+  padding: 0 10px;
+  backdrop-filter: blur(10px);
+}
+.mobile-nav-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+}
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.mobile-nav-item i { width: 20px; height: 20px; }
+.mobile-nav-item.active { color: #a855f7; }
+
+/* ── Responsive Overrides ── */
+@media (max-width: 768px) {
+  .dash-sidebar { display: none; }
+  .mobile-nav { display: block; }
+  .dash-main { 
+    padding: 20px 16px 85px 16px !important; 
+  }
+  .dash-grid, .dash-bottom-row {
+    grid-template-columns: 1fr !important;
+  }
+  .dash-page-title { font-size: 22px; }
+  .dash-card { padding: 16px; }
+  
+  /* CRM Layout */
+  .crm-container {
+    flex-direction: column !important;
+  }
+  .crm-sidebar {
+    width: 100% !important;
+    max-height: 400px;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-color);
+  }
 }
 
 .logo {
