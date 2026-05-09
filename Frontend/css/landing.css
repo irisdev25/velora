@@ -317,24 +317,162 @@ body {
     font-size: 14px;
 }
 
+/* ── Hamburger Menu ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.hamburger:hover { background: rgba(255,255,255,0.06); }
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #f8fafc;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile nav drawer */
+.mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(11, 9, 10, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    flex-direction: column;
+    padding: 20px 24px;
+    gap: 4px;
+    z-index: 999;
+    animation: slideDown 0.2s ease;
+}
+.mobile-drawer.open { display: flex; }
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.mobile-drawer a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: color 0.2s;
+}
+.mobile-drawer a:hover { color: #f8fafc; }
+.mobile-drawer a.btn-primary {
+    color: white;
+    text-align: center;
+    padding: 14px;
+    border-radius: 14px;
+    margin-top: 8px;
+    border-bottom: none;
+}
+
+/* ── Media Queries ── */
 @media (max-width: 968px) {
+    /* Navbar: mostrar hamburger, ocultar links */
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    /* Hero: columna única */
     .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
     }
+    .hero { padding: 120px 0 60px; }
     .hero-content p {
         margin-left: auto;
         margin-right: auto;
+        font-size: 16px;
     }
+    .hero-content h1 { font-size: clamp(32px, 7vw, 52px); }
     .hero-btns {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
     }
+    /* Imagen del hero: más compacta */
+    .hero-image {
+        max-width: 480px;
+        margin: 0 auto;
+        animation: none; /* sin float en móvil */
+    }
+
+    /* Features: 1 columna */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .feature-card { padding: 28px 24px; }
+
+    /* Pricing: 1 columna */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 20px;
+    }
+    .pricing-card.featured {
+        transform: none;
+        order: -1; /* destacado primero */
+    }
+    .pricing-card.featured:hover { transform: translateY(-6px); }
+
+    /* Footer: 2 columnas */
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+    .footer-brand { grid-column: 1 / -1; }
+
+    /* Section headers */
+    .section-header h2 { font-size: 30px; }
+    .section-header p { font-size: 16px; }
+
+    /* Sections: menos padding */
+    .features { padding: 60px 0; }
+    .pricing  { padding: 60px 0; }
+    .footer   { padding: 50px 0 30px; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 16px; }
+
+    /* Hero compacto */
+    .hero { padding: 100px 0 50px; }
+    .hero-content h1 { font-size: 30px; letter-spacing: -1px; }
+    .hero-content p { font-size: 15px; }
+    .btn-primary, .btn-secondary { padding: 12px 22px; font-size: 14px; }
+
+    /* Pricing */
+    .pricing-card { padding: 32px 20px; }
+    .pricing-card .price { font-size: 44px; }
+
+    /* Footer: 1 columna */
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 }
 
-/* Pricing Section */
 .pricing {
     padding: 100px 0;
     position: relative;
