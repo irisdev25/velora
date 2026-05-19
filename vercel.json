@@ -33,6 +33,14 @@
       "destination": "/Backend/server.js"
     },
     {
+      "source": "/",
+      "destination": "/Frontend/pages/index.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/Frontend/pages/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/Frontend/$1"
     }
