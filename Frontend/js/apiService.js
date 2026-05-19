@@ -93,7 +93,10 @@ class ApiService {
         localStorage.removeItem('user');
         window.location.href = '/pages/login.html';
       }
-      throw new Error(data.message || 'Error en la petición');
+      const errorMessage = data.error 
+        ? `${data.message}: ${data.error}` 
+        : (data.message || 'Error en la petición');
+      throw new Error(errorMessage);
     }
     return data;
   }

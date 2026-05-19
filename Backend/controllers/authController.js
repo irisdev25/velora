@@ -47,7 +47,7 @@ const register = async (req, res) => {
     res.status(201).json({ token, user: newUser.rows[0] });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error del servidor' });
+    res.status(500).json({ message: 'Error del servidor', error: error.message, stack: error.stack });
   }
 };
 
@@ -90,7 +90,7 @@ const login = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error del servidor' });
+    res.status(500).json({ message: 'Error del servidor', error: error.message, stack: error.stack });
   }
 };
 
@@ -110,7 +110,7 @@ const verifyEmail = async (req, res) => {
     res.json({ message: 'Correo verificado con éxito' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error del servidor' });
+    res.status(500).json({ message: 'Error del servidor', error: error.message, stack: error.stack });
   }
 };
 
@@ -136,7 +136,7 @@ const forgotPassword = async (req, res) => {
     res.json({ message: 'Correo de recuperación enviado' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error del servidor' });
+    res.status(500).json({ message: 'Error del servidor', error: error.message, stack: error.stack });
   }
 };
 
@@ -164,7 +164,7 @@ const resetPassword = async (req, res) => {
     res.json({ message: 'Contraseña actualizada con éxito' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error del servidor' });
+    res.status(500).json({ message: 'Error del servidor', error: error.message, stack: error.stack });
   }
 };
 
